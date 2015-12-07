@@ -14,8 +14,8 @@ By default the download URL is Mozilla's latest Firefox Beta Channel link. You c
 
 Firefox Edition | URL
 -----------------|------------------
-Firefox Stable | https://download.mozilla.org/?product=firefox-42.0-SSL&os=win64&lang=en-US
-Firefox Beta | https://download.mozilla.org/?product=firefox-43.0b9-SSL&os=win64&lang=en-US
+Firefox Stable | https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US
+Firefox Beta | https://download.mozilla.org/?product=firefox-beta-latest&os=win64&lang=en-US
 Firefox Devloper Edition | https://download.mozilla.org/?product=firefox-aurora-latest-ssl&os=win64&lang=en-US
 
 **The README.md is not yet finished, mind you!**
