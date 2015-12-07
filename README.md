@@ -18,4 +18,6 @@ By default the download URL is Mozilla's latest Firefox Beta Channel link. You c
 | Firefox Beta | https://download.mozilla.org/?product=firefox-beta-latest&os=win64&lang=en-US |
 | Firefox Devloper Edition | https://download.mozilla.org/?product=firefox-aurora-latest-ssl&os=win64&lang=en-US |
 
+Changing the download URL is done by changeing the `FirefoxDownloadURL` variable to one of the links above, or to one of your choice. In the future you should be able to input a link via a dialog, but this will do for now.
+
 **The README.md is not yet finished, mind you!**
