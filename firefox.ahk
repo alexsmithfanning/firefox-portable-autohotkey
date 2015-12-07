@@ -4,24 +4,32 @@ SendMode Input ; Recommended for new scripts due to its superior speed and relia
 SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
 #SingleInstance, Force ; Not really needed because of #Persistent, but I like to keep it here anyway just to be safe.
 #Persistent ; Makes the script persistent.
+MainScriptIncluded = True ; No not remove this. Ever.
+FastDownloadMode = True ; Downloads the update to TEMP instead of the normal directory.
+DataDirectory = %A_ScriptDir%\Data
+DataBackupLocation = %A_ScriptDir%\Backup\DATA_OLD.7Z
+FirefoxDownloadURL = https://download.mozilla.org/?product=firefox-beta-latest&os=win64&lang=en-US
+FinalInstallerLocation = %A_ScriptDir%\Backup\Update\firefox_update.exe
+7Zip = %A_ScriptDir%\Resources\7zG.exe
+UpdateDirectory = %A_ScriptDir%\Backup\Update
+FirefoxStartup = %DataDirectory%\firefox.exe
 Menu, TRAY, NoStandard ; Removes standard AutoHotkey entries.
 Menu, TRAY, Tip, Firefox is running
-
-/*
-if not A_Is64bitOS
-{
-   MsgBox, 0, Error, This version of the script can only run on sixty four bit operating systems. Grab the thirty two bit version from the same place that
-   ExitApp
-}
-*/
+SetBatchLines, -1
 
 ; Hotkeys start.
 
 ; Hotkeys end.
 
 IfNotExist, %A_ScriptDir%\Data\firefox.exe
-GOTO FirefoxSetup
+{
+	GOTO FirefoxSetup
+	IsFirstRun = True
+}
 Else
+{
+	IsFirstRun = False
+}
 
 SetEnv, 7ZGUI, %A_ScriptDir%\Resources\7zG.exe
 SetEnv, FirefoxStartup, %A_ScriptDir%\Data\firefox.exe -profile "Profile"
@@ -37,8 +45,6 @@ OnExit, SanityCheck ; Prevents Firefox from having any leftover processes after 
 Menu, TRAY, Add, Open new window, OpenNew
 Menu, TRAY, Icon, Open new window, %A_ScriptDir%\Resources\icons.dll, 3, 0
 Menu, TRAY, Add
-Menu, TRAY, Add, Search, SearchWithFirefox
-Menu, TRAY, Icon, Search, %A_ScriptDir%\Resources\icons.dll, 4, 0
 Menu, TRAY, Add, Backup Profile, ProfileBackup
 Menu, TRAY, Icon, Backup Profile, %A_ScriptDir%\Resources\icons.dll, 1, 0
 Menu, TRAY, Add, Update Firefox, FirefoxUpdate
@@ -68,24 +74,8 @@ ProfileBackup:
 FirefoxUpdate:
 #Include firefox-update.ahk
 
-SearchWithFirefox:
-#Include search.ahk
-
 FirefoxSetup:
 #Include firefox-setup.ahk
-
-StartSetup:
-MsgBox, 0, Information, In order to start setup, a simple step has to be taken. Go to the Mozilla website and download the latest offline installer for Firefox. Do not run it. Place it in "%A_ScriptDir%\Backup\Updates" and click "OK".
-FileMove, %A_ScriptDir%\Backup\Update\*firefox*setup*.exe, %A_ScriptDir%\Backup\Update\firefox_update.exe
-FileMove, %A_ScriptDir%\Backup\Update\*firefox*installer*.exe, %A_ScriptDir%\Backup\Update\firefox_update.exe
-RunWait, Resources\7zG.exe x .\Backup\Update\firefox_update.exe -y -o%A_ScriptDir%\Backup\Update
-FileRemoveDir, %A_ScriptDir%\Data, 1
-FileCreateDir, %A_ScriptDir%\Data
-FileCopyDir, %A_ScriptDir%\Backup\Update\core, %A_ScriptDir%\Data, 1
-FileRemoveDir, %A_ScriptDir%\Backup\Update, 1
-FileCreateDir, %A_ScriptDir%\Backup\Update
-Sleep, 2000
-Reload
 
 PlaceHolderGOTO:
 Return
