@@ -12,10 +12,10 @@ The `FastDownloadMode` variable sets whether to use the current computer's tempo
 ### Download URL
 By default the download URL is Mozilla's latest Firefox Beta Channel link. You can use any download URL as long as its an offline installer. I've put together some of the most used URLs below in a nice table:
 
-Firefox Edition | URL |
------------------|------------------ |
-Firefox Stable | https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US |
-Firefox Beta | https://download.mozilla.org/?product=firefox-beta-latest&os=win64&lang=en-US |
-Firefox Devloper Edition | https://download.mozilla.org/?product=firefox-aurora-latest-ssl&os=win64&lang=en-US |
+| Firefox Edition | URL |
+| ----------------- | ------------------ |
+| Firefox Stable | https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US |
+| Firefox Beta | https://download.mozilla.org/?product=firefox-beta-latest&os=win64&lang=en-US |
+| Firefox Devloper Edition | https://download.mozilla.org/?product=firefox-aurora-latest-ssl&os=win64&lang=en-US |
 
 **The README.md is not yet finished, mind you!**
