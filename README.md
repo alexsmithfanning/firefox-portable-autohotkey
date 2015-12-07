@@ -20,4 +20,12 @@ By default the download URL is Mozilla's latest Firefox Beta Channel link. You c
 
 Changing the download URL is done by changeing the `FirefoxDownloadURL` variable to one of the links above, or to one of your choice. In the future you should be able to input a link via a dialog, but this will do for now.
 
-**The README.md is not yet finished, mind you!**
+## Future plans
+* Input a download link dialog on first startup.
+* 32-bit & 64-bit versions.
+* Configuration file support to store settings data.
+* Auto backup of profile data.
+* Extensions repository search support.
+* Open with portable launcher support.
+
+These will get implemented as I learn more about AutoHotkey and have enough time.
