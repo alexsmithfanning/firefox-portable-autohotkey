@@ -5,6 +5,9 @@ A much less bloated version of PortableApps.com's portable Firefox launcher.
 * Doesn't need user intervention to update.
 * Hopefully more soon!
 
+## Dependencies
+In order for backup compression and restoration, you need to have [7-Zip](7-zip.org) (specifically `7zG.exe`, `7z.exe`, and `7z.dll` from the binaries). An internet connection is required for updating via the menu.
+
 ## Setting download URL and download mode
 ### Fast download mode
 The `FastDownloadMode` variable sets whether to use the current computer's temporary directory or to use the default (usually much slower) download directory.
