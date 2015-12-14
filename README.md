@@ -16,42 +16,30 @@ In fact, I use this more than ten times a day. I'm a high school student and (in
 
 In order for semi-automatic updating, you need to have 7-Zip (specifically `7zG.exe`, `7z.exe`, and `7z.dll` from the binaries). An internet connection is required for updating via the menu. Hopefully in the future it won't need any external tools (apart from the libraries that I'm using).
 
-## Setting download URL and download mode
+## Features and options
+
+### Backup your profile
+
+To backup your profile, just head down and right click the tray icon, then select `Backup Profile`. It'll walk you through the steps needed to backup your profile.
 
 ### Fast download mode
 
-The `FastDownloadMode` variable sets whether to use the current computer's temporary directory or to use the default (usually much slower) download directory. **The temporary directory is worlds faster though, so keep that in mind.**
+Currently the settings for fast download mode are broken. Hopefully they'll be fixed soon.
 
-So, in order to disable it, the code would look something like this:
+### Setting Firefox version
 
-```
-FastDownloadMode = False ; Downloads the update to TEMP instead of the normal directory.
-```
+If you want to change what version of Firefox to use, simply right click the tray icon and select `Change Edition` and it'll give you a dialog asking you what version of Firefox it should update to. I'll give a basic breakdown of what these different versions are:
 
-And don't worry; If you need help I'll gladly help you. Just create an issue and ask me, I'll guide you through the steps needed.
-
-### Download URL
-By default the download URL is Mozilla's latest Firefox Beta Channel link. You can use any download URL as long as its an offline installer. I've put together some of the most used URLs below in a nice table:
-
-| Firefox Edition           | URL                                                                                 |
-| ------------------------- | ----------------------------------------------------------------------------------- |
-| Firefox Stable            | https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US            |
-| Firefox Beta (Default)    | https://download.mozilla.org/?product=firefox-beta-latest&os=win64&lang=en-US       |
-| Firefox Developer Edition | https://download.mozilla.org/?product=firefox-aurora-latest-ssl&os=win64&lang=en-US |
-
-Changing the download URL is done by changing the `FirefoxDownloadURL` variable to one of the links above, or to one of your choice. In the future you should be able to input a link via a dialog, but this will do for now.
-
-So, the code would look a little something like this:
-
-```
-FirefoxDownloadURL = https://download.mozilla.org/?product=firefox-beta-latest&os=win64&lang=en-US
-```
-
-This code is contained within `Firefox.ahk`.
+| Firefox Version               | Description                                                                                                                                                                                                                              |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Firefox Stable Edition        | This version is recommended for users new to the Firefox experience. It's the **most stable** of the versions listed here.                                                                                                               |
+| Firefox Beta Edition          | This version is for users who aren't necessarily power users, but want the newer features in a more stable environment. **Some things might be broken** or not work, but is much less buggy than the Developer Edition.                  |
+| Firefox Developer Edition     | This special version of Firefox is reserved for **power users only**. It is likely to have many bugs, and comes with a theme that normal users wouldn't be familiar with.                                                                |
+| Nightly Edition (unstable)    | This version is the **bleeding edge**. This version might not work at all, it gets built by server bots *every night* regardless of whether or not it works. Only use this if you're completely insane and want people to know it.       |
 
 ## Future plans
 
-* Input a download link dialog on first startup.
+* ~~Dialog to choose what version you want.~~ **Done!**
 * 32-bit & 64-bit versions.
 * Configuration file support to store settings data.
 * Auto backup of profile data.
@@ -59,6 +47,22 @@ This code is contained within `Firefox.ahk`.
 * Open with portable launcher support.
 
 These will get implemented as I learn more about AutoHotkey and have enough time.
+
+## Contact me
+
+You can contact me by my email address at: alexsmithfanning@gmail.com or on [Google+](https://plus.google.com/+AlexSmithFanning), [Reddit](https://www.reddit.com/u/alexsmithfanning), and [Twitter](https://www.twitter.com/smith464_ASF).
+
+I prefer Google+ since that's what I use the most, but I won't miss it if you contact me on Twitter.
+
+## Useful links
+
+These are some useful links that'll help you get what you rightfully deserve out of your paid education. Like unsenored Internet access.
+
+* For a Virtual Private Network (VPN) I'd very highly recommend [ZenMate](https://www.zenmate.com). They give you best effort speed which is usually around the neighborhood of about ten to twelve megabytes per second. They also allow you to tunnel to six different countries for free.
+
+* [youtube-dl](https://rg3.github.io/youtube-dl/) is a great program for downloading YouTube videos if you *really* don't want to use a VPN. It uses direct to URL download links so the likelyhood of wherever you're at being able to even block one is a really long stretch. Keep in mind though that this is against YouTube's Contect Policy. *This program runs in a terminal!*
+
+* The [ReactOS Project](https://www.reactos.org) has a great collection of reverse engineered software that can thwart whatever measures people have put in place to restrict you using the terminal (Command Prompt, for you layman). Its fully compatible with Windows 2000 and above, mimicking exactly what the terminal looks like, but being different enough that Windows doesn't know it's a terminal.
 
 ## License
 
