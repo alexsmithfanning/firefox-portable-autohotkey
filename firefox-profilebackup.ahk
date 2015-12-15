@@ -12,19 +12,19 @@ ProfileBackupLocation = %BackupDirectory%\PROFILE.7Z
 UpdateDirectory = %A_ScriptDir%\Backup\Update
 FirefoxStartup = %DataDirectory%\firefox.exe
 ProfileDirectory = %A_ScriptDir%\Profile
-SetBatchLines, -1
+#SingleInstance, Force
+
+If IsRunningAsLibrary = 
+{
+	MsgBox, 8208, Error, You are attempting to directly run this file. Running it directly could cause harm to your system.
+	ErrorLevel = 1
+	ExitApp
+}
 
 MsgBox, 308, Confirm Close, Firefox must be closed in order to backup your profile. Close all Firefox windows before backing up or they will be closed by force.`n`nWould you like to continue?
 	IfMsgBox No 
 	{
-		If MainScriptIncluded = True 
-		{
-			Return
-		}
-		Else 
-		{
-			ExitApp
-		}
+		Return
 	}
 	Else IfMsgBox Yes
 	{
@@ -57,9 +57,11 @@ GUI FirefoxProfileBackupGUI: Destroy
 MsgBox, 36, Profile Backup Successful, Your profile has been successfully backed up.`n`nWould you like to relaunch Firefox?
 	IfMsgBox Yes
 	{
+		ErrorLevel = 0
 		Reload
 	}
 	Else IfMsgBox No
 	{
+		ErrorLevel = 0
 		Return
 	}
