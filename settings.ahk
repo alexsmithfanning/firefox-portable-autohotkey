@@ -26,19 +26,21 @@ GUI Settings: New, , Settings
 GUI Settings: Margin, 10, 10
 GUI Settings: Color, White
 GUI Settings: Add, Checkbox, vFastDownloadModeCheckbox, Fast Download Mode
-GUI Settings: Add, Button, vSettingsOkayButton gGetCheckedStateAndApplySettings y50 x140 w100 h30, OK
+GUI Settings: Add, Button, vSettingsApplyButton gGetCheckedStateAndApplySettings y50 x140 w100 h30, Apply
 ; GUI Settings: Add, Button, vSettingsCancelButton y50 x200 w100 h30, Cancel
 GUI Settings: Show
 Return
 
 GetCheckedStateAndApplySettings:
-If FastDownloadModeCheckbox =
-{
-	IniWrite, False, %ConfigurationLocation%, GENERAL, FastDownloadMode
-}
-Else
+ControlGet, FastDownloadModeCheckboxCheckedState, Checked, , %FastDownloadModeCheckbox%
+If FastDownloadModeCheckboxCheckedState = 1
 {
 	IniWrite, True, %ConfigurationLocation%, GENERAL, FastDownloadMode
+}
+
+If FastDownloadModeCheckboxCheckedState = 0
+{
+	IniWrite, False, %ConfigurationLocation%, GENERAL, FastDownloadMode
 }
 Return
 
