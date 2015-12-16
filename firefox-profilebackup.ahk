@@ -22,16 +22,16 @@ If IsRunningAsLibrary =
 }
 
 MsgBox, 308, Confirm Close, Firefox must be closed in order to backup your profile. Close all Firefox windows before backing up or they will be closed by force.`n`nWould you like to continue?
-	IfMsgBox No 
-	{
-		Return
-	}
-	Else IfMsgBox Yes
-	{
-		Process, Close, updater.exe
-		Process, Close, firefox.exe
-		Process, Close, crashreporter.exe
-	}
+IfMsgBox No 
+{
+	Return
+}
+Else IfMsgBox Yes
+{
+	Process, Close, updater.exe
+	Process, Close, firefox.exe
+	Process, Close, crashreporter.exe
+}
 
 GUI FirefoxProfileBackupGUI: New,, Backup your profile
 GUI FirefoxProfileBackupGUI: Margin, 10, 10
@@ -55,13 +55,13 @@ RunWait, %7Zip% a %ProfileBackupLocation% %ProfileDirectory%\* -r0 -t7z -y -mx9 
 GUIControl,, ProfileBackupProgress, 60
 GUI FirefoxProfileBackupGUI: Destroy
 MsgBox, 36, Profile Backup Successful, Your profile has been successfully backed up.`n`nWould you like to relaunch Firefox?
-	IfMsgBox Yes
-	{
-		ErrorLevel = 0
-		Reload
-	}
-	Else IfMsgBox No
-	{
-		ErrorLevel = 0
-		Return
-	}
+IfMsgBox Yes
+{
+	ErrorLevel = 0
+	Reload
+}
+Else IfMsgBox No
+{
+	ErrorLevel = 0
+	Return
+}

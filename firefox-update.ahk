@@ -70,9 +70,9 @@ GUI FirefoxUpdateGUI: Margin, 10, 10
 GUI FirefoxUpdateGUI: Color, White
 GUI FirefoxUpdateGUI: -SysMenu
 GUI FirefoxUpdateGUI: Add, Text, vProgressSubtitleText, Firefox is being updated, please wait. This might take a while.
-GUI FirefoxUpdateGUI: Add, Progress, h20 w400 -0x00000001 vFirefoxUpdateProgress Range0-60, 10
+GUI FirefoxUpdateGUI: Add, Progress, h20 w400 -0x00000001 vFirefoxUpdateProgress Range0-50, 10
 GUI FirefoxUpdateGUI: Font, Italic
-GUI FirefoxUpdateGUI: Add, Text, cGray vProgressInfoText, Downloading the Mozilla Firefox installer...
+GUI FirefoxUpdateGUI: Add, Text, cGray vProgressInfoText w300, Downloading the Mozilla Firefox installer...
 GUI FirefoxUpdateGUI: Show
 
 URLDownloadToFile, %FirefoxDownloadURL%, %FirefoxDownloadLocation% ; Download the installer from the specified download URL.
@@ -123,6 +123,7 @@ GUIControl, Text, ProgressInfoText, Cleaning up leftover information...
 GUIControl,, FirefoxUpdateProgress, 50
 FileRemoveDir, %UpdateDirectory%, 1
 FileCreateDir, %UpdateDirectory%
+GUI FirefoxUpdateGUI: Destroy
 
 MsgBox, 36, Update Successful, Firefox has been successfully updated. The newest version is installed.`n`nWould you like to launch it now?
 IfMsgBox Yes
